@@ -368,7 +368,7 @@ textarea:focus {
           background-color: transparent;
           padding: 0 15px;
           font-size: 12px;
-          font-style: italic;
+          /* font-style: italic; */
           color: #fff; }
           .header-area .top-header-area .login-search-area .search-form form input.form-control {
             box-shadow: none; }
@@ -556,7 +556,7 @@ textarea:focus {
     padding: 30px 0; }
     .single-blog-post .post-data .post-catagory {
       font-size: 14px;
-      color: #ee002d;
+      color: #A31C41; /* #ee002d; */
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: 10px;
