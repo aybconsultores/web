@@ -24,16 +24,18 @@
     }, {
         "id": "3",
         "nombre": "Entelgy"
-    }]
+    }],
     "recursos": [{
         "codigo": "XP01234",
         "nombre": "XP",
-        "DNI": "41235678"
+        "tipoDocumento": "DNI",
+        "nroDocumento": "41235678",
         "fabrica": "1"
     },{
         "codigo": "XP01235",
         "nombre": "XP",
-        "DNI": "41235679"
+        "tipoDocumento": "DNI",
+        "nroDocumento": "41235679",
         "fabrica": "2"
     }],
     "tareas": [{
