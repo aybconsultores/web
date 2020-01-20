@@ -1,41 +1,43 @@
 {
-    "proyectos": [{
+    "projects": [{
         "id": "1",
-        "codigo": "0001",
-        "nombre": "SDATOOL-316129 Optimización time to market"
+        "code": "0001",
+        "name": "SDATOOL-316129 Optimización time to market"
     }],
     "mvps": [{
         "id": "1",
-        "codigo": "DM-01",
-        "nombre": "Módulo de KPIs",
-        "proyecto": "1"
+        "code": "DM-01",
+        "name": "Módulo de KPIs",
+        "projectId": "1"
     },{
         "id": "2",
-        "codigo": "DM-02",
-        "nombre": "Herramienta de Staffing",
-        "proyecto": "1"
+        "code": "DM-02",
+        "name": "Herramienta de Staffing",
+        "projectId": "1"
     }],
-    "fabricas": [{
+    "factories": [{
         "id": "1",
-        "nombre": "Tata"
+        "name": "Tata"
     }, {
         "id": "2",
-        "nombre": "Camvia"
+        "name": "Camvia"
     }, {
         "id": "3",
-        "nombre": "Entelgy"
-    }]
-    "recursos": [{
-        "codigo": "XP01234",
-        "nombre": "XP",
-        "DNI": "41235678"
-        "fabrica": "1"
-    },{
-        "codigo": "XP01235",
-        "nombre": "XP",
-        "DNI": "41235679"
-        "fabrica": "2"
+        "name": "Entelgy"
     }],
-    "tareas": [{
+    "resources": [{
+        "code": "XP01234",
+        "name": "XP 01234",
+        "typeDocument": "DNI",
+        "numberDocument": "41235678",
+        "factoryId": "1"
+    },{
+        "code": "XP01235",
+        "name": "XP 01235",
+        "typeDocument": "DNI",
+        "numberDocument": "41235679",
+        "factoryId": "2"
+    }],
+    "tasks": [{
     }]
 }
