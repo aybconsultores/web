@@ -1,14 +1,39 @@
 <template>
   <div>
     <h1>OrdenTrabajo</h1>
+    {{ projectWithMpvs }}
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import store from "../store";
+import { FETCH_PROJECTS, FETCH_MVPS } from "../store/actions.type";
+
 export default {
   name: 'OrdenTrabajo',
   props: {
-    msg: String
+    params: Object
+  },
+  beforeRouteEnter(to, from, next) {
+    Promise.all([
+      store.dispatch(FETCH_PROJECTS, {}),
+      store.dispatch(FETCH_MVPS, {})
+    ]).then(() => {
+      next();
+    });
+  },
+  computed: {
+    ...mapGetters(["projects", "mvps"]),
+    projectWithMpvs() {
+      const projects = this.projects;
+      return this.mvps.map(e1 => {
+        const project = projects.filter(e2 => e2.id === e1.proyecto);
+        let mvp = { ...e1 };
+        mvp.proyecto = { ...project[0] };
+        return mvp;
+      })
+    }
   }
 }
 </script>
