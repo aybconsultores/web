@@ -1,14 +1,25 @@
 <template>
   <div>
     <h1>OrdenTrabajo</h1>
-    {{ projectWithMpvs }}
+    <b-table 
+      id="data-table"
+      hover 
+      :items="dataTable.items" 
+      :fields="dataTable.fields"
+      :per-page="dataTable.perPage"
+      :current-page="dataTable.currentPage" />
+    <b-pagination
+      v-model="dataTable.currentPage"
+      :total-rows="dataTable.rows"
+      :per-page="dataTable.perPage"
+      aria-controls="data-table" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import store from "../store";
-import { FETCH_PROJECTS, FETCH_MVPS } from "../store/actions.type";
+import { FETCH_MVPS } from "../store/actions.type";
 
 export default {
   name: 'OrdenTrabajo',
@@ -17,22 +28,24 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     Promise.all([
-      store.dispatch(FETCH_PROJECTS, {}),
-      store.dispatch(FETCH_MVPS, {})
+      store.dispatch(FETCH_MVPS, { "_expand": "project"})
     ]).then(() => {
       next();
     });
   },
   computed: {
-    ...mapGetters(["projects", "mvps"]),
-    projectWithMpvs() {
-      const projects = this.projects;
-      return this.mvps.map(e1 => {
-        const project = projects.filter(e2 => e2.id === e1.proyecto);
-        let mvp = { ...e1 };
-        mvp.proyecto = { ...project[0] };
-        return mvp;
-      })
+    ...mapGetters(["mvps"]),
+    dataTable() {
+      const mvps = this.mvps;
+      return {
+        perPage: 10,
+        rows: 1,
+        currentPage: 1,
+        fields: [
+          {key: 'project.code', label: "Cód. Proyecto"}, 'project.name', 'id', 'code', 'name'
+        ],
+        items: [ ...mvps ]
+      }
     }
   }
 }
