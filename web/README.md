@@ -27,4 +27,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Dummy services
 ```
 json-server --watch db.json
+http://my-json-server.typicode.com/aybconsultores/web/projects
 ```

@@ -1,18 +1,11 @@
 <template>
   <div>
     <h1>OrdenTrabajo</h1>
-    <b-table 
-      id="data-table"
-      hover 
-      :items="dataTable.items" 
-      :fields="dataTable.fields"
-      :per-page="dataTable.perPage"
-      :current-page="dataTable.currentPage" />
-    <b-pagination
-      v-model="dataTable.currentPage"
-      :total-rows="dataTable.rows"
-      :per-page="dataTable.perPage"
-      aria-controls="data-table" />
+    <ag-grid-vue
+      class="app-grid ag-theme-balham"
+      :columnDefs="columnDefs"
+      :rowData="rowData"
+      rowSelection="multiple" />
   </div>
 </template>
 
@@ -20,11 +13,23 @@
 import { mapGetters } from "vuex";
 import store from "../store";
 import { FETCH_MVPS } from "../store/actions.type";
+import {AgGridVue} from "ag-grid-vue";
 
 export default {
   name: 'OrdenTrabajo',
   props: {
     params: Object
+  },
+  data() {
+    return {
+      columnDefs: [
+        {checkboxSelection: true},
+        {field: 'project.code', headerName: "Cód. Proyecto"},
+        {field: 'project.name', headerName: "Proyecto"},
+        {field: 'code', headerName: "Cód. MVP"},
+        {field: 'name', headerName: "MVP"}
+      ]
+    }
   },
   beforeRouteEnter(to, from, next) {
     Promise.all([
@@ -33,19 +38,13 @@ export default {
       next();
     });
   },
+  components: {
+    AgGridVue
+  },
   computed: {
     ...mapGetters(["mvps"]),
-    dataTable() {
-      const mvps = this.mvps;
-      return {
-        perPage: 10,
-        rows: 1,
-        currentPage: 1,
-        fields: [
-          {key: 'project.code', label: "Cód. Proyecto"}, 'project.name', 'id', 'code', 'name'
-        ],
-        items: [ ...mvps ]
-      }
+    rowData() {
+      return [ ...this.mvps ]
     }
   }
 }
