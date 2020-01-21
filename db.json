@@ -1,0 +1,43 @@
+{
+    "projects": [{
+        "id": "1",
+        "code": "0001",
+        "name": "SDATOOL-316129 Optimización time to market"
+    }],
+    "mvps": [{
+        "id": "1",
+        "code": "DM-01",
+        "name": "Módulo de KPIs",
+        "projectId": "1"
+    },{
+        "id": "2",
+        "code": "DM-02",
+        "name": "Herramienta de Staffing",
+        "projectId": "1"
+    }],
+    "factories": [{
+        "id": "1",
+        "name": "Tata"
+    }, {
+        "id": "2",
+        "name": "Camvia"
+    }, {
+        "id": "3",
+        "name": "Entelgy"
+    }],
+    "resources": [{
+        "code": "XP01234",
+        "name": "XP 01234",
+        "typeDocument": "DNI",
+        "numberDocument": "41235678",
+        "factoryId": "1"
+    },{
+        "code": "XP01235",
+        "name": "XP 01235",
+        "typeDocument": "DNI",
+        "numberDocument": "41235679",
+        "factoryId": "2"
+    }],
+    "tasks": [{
+    }]
+}
