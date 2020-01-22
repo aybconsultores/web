@@ -5,7 +5,8 @@
       class="app-grid ag-theme-balham"
       :columnDefs="columnDefs"
       :rowData="rowData"
-      rowSelection="multiple" />
+      rowSelection="multiple"
+      @grid-ready="onGridReady" />
   </div>
 </template>
 
@@ -40,6 +41,12 @@ export default {
   },
   components: {
     AgGridVue
+  },
+  methods: {
+    onGridReady(params) {
+      this.gridApi = params.api;
+      this.columnApi = params.columnApi;
+    }
   },
   computed: {
     ...mapGetters(["mvps"]),
