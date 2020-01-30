@@ -1202,3 +1202,9 @@ textarea:focus {
     @media only screen and (max-width: 767px) {
       .contact-area .contact-title h2 {
         font-size: 30px; } }
+
+
+.footer-logo b.logo {
+ font-size: 28px;
+ color: #fff;
+}
