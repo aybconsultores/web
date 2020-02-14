@@ -13,6 +13,7 @@ const ApiService = {
 
   setHeader() {
     // Vue.axios.defaults.headers.common["Authorization"] = `Token ${JwtService.getToken()}`;
+    // Vue.axios.defaults.headers.common["Cookie"] = `Token ${JwtService.getToken()}`;
   }
 }
 
