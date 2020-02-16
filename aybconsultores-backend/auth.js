@@ -1,12 +1,12 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAZMtAAu5kBbg70pY1VIhulhHaXST0Ki5Q",
-  authDomain: "kpis-innova-labs.firebaseapp.com",
-  databaseURL: "https://kpis-innova-labs.firebaseio.com",
-  projectId: "kpis-innova-labs",
-  storageBucket: "kpis-innova-labs.appspot.com",
-  messagingSenderId: "557559810650",
-  appId: "1:557559810650:web:f860b3d8c736b49567a663",
-  measurementId: "G-PKX7WBP05Y"
+  apiKey: "AIzaSyA10nKkKFtfW_p-KmC9d9nsrrFwrjAQq5Y",
+  authDomain: "aybconsultores-v1.firebaseapp.com",
+  databaseURL: "https://aybconsultores-v1.firebaseio.com",
+  projectId: "aybconsultores-v1",
+  storageBucket: "aybconsultores-v1.appspot.com",
+  messagingSenderId: "27002815093",
+  appId: "1:27002815093:web:283b1edd568290b15aae3c",
+  measurementId: "G-PE824QSF07"
 };
 
 const firestoreConfig = {
