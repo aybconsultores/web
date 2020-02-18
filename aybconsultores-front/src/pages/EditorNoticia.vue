@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <h3 class="pt-3 pb-2">Adminstrador de Noticias</h3>
+    <h1>Noticias</h1>
     <div class="row">
       <div class="col-lg-6">
         <ag-grid-vue
@@ -10,17 +10,18 @@
           @grid-ready="onGridReady" />
       </div>
       <div class="col-lg-6">
-        <div v-html="content" />
+        <vue-editor v-model="content" />
       </div>
     </div>
   </div>
 </template>
 <script>
+import { VueEditor } from "vue2-editor";
 import { AgGridVue } from "ag-grid-vue";
 
 export default {
   name: 'Noticias',
-  components: { AgGridVue },
+  components: { VueEditor, AgGridVue },
   props: {
     params: Object
   },
