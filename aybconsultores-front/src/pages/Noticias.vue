@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <h3 class="pt-3 pb-2">Adminstrador de Noticias</h3>
+    <h3 class="pt-4 pb-3">Administrador de Noticias</h3>
     <div class="row">
       <div class="col-lg-6">
         <ag-grid-vue

@@ -54,7 +54,6 @@ class AbstractService {
   }
 }
 
-export const ProjectService = new AbstractService("proyectos");
-export const MvpsService = new AbstractService("mvps");
+export const PostService = new AbstractService("posts");
 
 export default ApiService;

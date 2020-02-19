@@ -1,7 +1,7 @@
 <template>
   <div id="menu-bar" >
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="#">A&B Consultores Corporativos</b-navbar-brand>
+      <b-navbar-brand href="#">Example</b-navbar-brand><!-- A&B Consultores Corporativos -->
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
