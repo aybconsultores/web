@@ -11,8 +11,8 @@
         </a>
         <!-- Post Like & Post Comment -->
         <div class="d-flex align-items-center">
-          <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-          <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+          <a href="#" class="post-like"><img src="../assets/like.png" alt=""> <span>392</span></a>
+          <a href="#" class="post-comment"><img src="../assets/chat.png" alt=""> <span>10</span></a>
         </div>
       </div>
     </div>
@@ -21,6 +21,6 @@
 
 <script>
 export default {
-  name: 'PostData'
+  name: 'Post'
 }
 </script>

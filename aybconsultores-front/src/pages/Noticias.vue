@@ -10,35 +10,52 @@
           @grid-ready="onGridReady" />
       </div>
       <div class="col-lg-6">
+        <Post />
         <div v-html="content" />
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+import store from "../store";
+import { FETCH_POSTS } from "../store/actions.type";
 import { AgGridVue } from "ag-grid-vue";
+import Post from '../components/Post';
 
 export default {
   name: 'Noticias',
-  components: { AgGridVue },
+  components: { AgGridVue, Post },
   props: {
     params: Object
+  },
+  beforeRouteEnter: (to, from, next) => {
+    Promise.all([
+      store.dispatch(FETCH_POSTS, { "_expand": "author"})
+    ]).then(() => {
+      next();
+    });
   },
   data: () => ({
     content: "<h1>Some initial content</h1>",
     columnDefs: [
       {field: 'title', headerName: "Titulo"},
       {field: 'category', headerName: "Categoría"},
-      {field: 'date', headerName: "Fecha"},
+      {field: 'created', headerName: "Fecha"},
       {field: 'likes', headerName: "# Me Gusta"},
-      {field: 'comments', headerName: "# Comentarios"}
-    ],
-    rowData: [ {"title": "dd", "category": "Finanzas", "date": "12/02/2020 12:12:12", "likes": 2, "comments": 5} ]
+      {field: 'numberOfComments', headerName: "# Comentarios"}
+    ]
   }),
   methods: {
     onGridReady(params) {
       this.gridApi = params.api;
       this.columnApi = params.columnApi;
+    }
+  },
+  computed: {
+    ...mapGetters([ "posts" ]),
+    rowData() {
+      return [ ...this.posts ]
     }
   }
 }
