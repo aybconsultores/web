@@ -1,7 +1,7 @@
 <template>
   <div class="single-blog-post featured-post-2">
     <div class="post-thumb">
-      <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+      <a href="#"><img src="https://aybconsultores.github.io/web/img/bg-img/17.jpg" alt=""></a>
     </div>
     <div class="post-data">
       <a href="#" class="post-catagory">Finance</a>
