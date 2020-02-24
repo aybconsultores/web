@@ -11,9 +11,19 @@
   color: #2c3e50;
 
   .app-grid {
-    width: 90%;
-    height: 500px;
+    width: 98%;
+    height: 445px;
     margin: auto;
+    padding: 10px;
+  }
+
+  .app-visor-post {
+    width: 98%;
+    height: 455px;
+    margin: auto;
+    overflow: auto;
+    /* border: 1px solid #2c3e50; */
+    padding: 10px;
   }
 
   #menu-bar {

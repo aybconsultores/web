@@ -1,18 +1,18 @@
 <template>
   <div class="single-blog-post featured-post-2">
     <div class="post-thumb">
-      <a href="#"><img src="https://aybconsultores.github.io/web/img/bg-img/17.jpg" alt=""></a>
+      <a href="#"><img :src="post.photo" alt=""></a>
     </div>
     <div class="post-data">
-      <a href="#" class="post-catagory">Finance</a>
+      <a href="#" class="post-catagory">{{ post.category }}</a>
       <div class="post-meta">
         <a href="#" class="post-title">
-          <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac...</h6>
+          <h6>{{ post.title }}</h6>
         </a>
         <!-- Post Like & Post Comment -->
         <div class="d-flex align-items-center">
-          <a href="#" class="post-like"><img src="../assets/like.png" alt=""> <span>392</span></a>
-          <a href="#" class="post-comment"><img src="../assets/chat.png" alt=""> <span>10</span></a>
+          <a href="#" class="post-like"><img src="../assets/like.png" alt=""> <span>{{ post.likes }}</span></a>
+          <a href="#" class="post-comment"><img src="../assets/chat.png" alt=""> <span>{{ post.numberOfComments }}</span></a>
         </div>
       </div>
     </div>
@@ -21,6 +21,9 @@
 
 <script>
 export default {
-  name: 'Post'
+  name: 'Post',
+  props: {
+    post: Object
+  }
 }
 </script>
