@@ -25,6 +25,10 @@ export default new Router({
       name: "noticias",
       path: "/admin/noticias",
       component: () => import("@/pages/Noticias")
+    }, {
+      name: "editorNoticia",
+      path: "/admin/noticia/:id",
+      component: () => import("@/pages/EditorNoticia")
     }
   ]
 })

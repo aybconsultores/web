@@ -27,7 +27,7 @@
             <h3>Vista previa</h3>
           </div>
           <div class="col-lg-2">
-            <b-button>Editar</b-button>
+            <b-button @click="onEditNew">Editar</b-button>
           </div>
         </div>
         <div class="row app-visor-post">
@@ -96,6 +96,9 @@ export default {
         this.postSelected = {};
       }
       // document.querySelector("#selectedRows").innerHTML = selectedRows.length === 1 ? .athlete : "";
+    },
+    onEditNew() {
+      this.$router.push({"name": "editorNoticia", "params": {"id": this.postSelected.id}})
     }
   },
   computed: {
