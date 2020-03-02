@@ -75,6 +75,24 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  methods: {
+    onScroll() {
+      // Any code to be executed when the window is scrolled
+      const e = document.querySelector("#stickyMenu");
+      const y = e.getBoundingClientRect().top;
+      if(y <= 0) {
+        e.classList.add("app-fixed");
+      } else {
+        e.classList.remove("app-fixed");
+      }
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.onScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
 };
 </script>
