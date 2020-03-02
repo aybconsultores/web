@@ -50,9 +50,6 @@ import Post from '../components/Post';
 export default {
   name: 'Noticias',
   components: { AgGridVue, Post },
-  props: {
-    params: Object
-  },
   beforeRouteEnter: (to, from, next) => {
     Promise.all([
       store.dispatch(FETCH_POSTS, { "_expand": "author"})

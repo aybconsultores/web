@@ -5,6 +5,7 @@ export const RESET_STATE = "resetState";
 export const SET_ERROR = "setError";
 
 export const SET_POSTS = "setPosts";
+export const SET_POST = "setPost";
 // export const SET_MVPS = "setMvps";
 // export const SET_ARTICLE = "setArticle";
 // export const SET_AUTH = "setUser";

@@ -8,7 +8,7 @@
             <label class="form-control">Foto</label>
           </div>
           <div class="col-lg-10">
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" v-model="post.photo"/>
           </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
             <label class="form-control">Titulo</label>
           </div>
           <div class="col-lg-10">
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" v-model="post.title"/>
           </div>
         </div>
         <div class="row">
@@ -24,32 +24,25 @@
             <label class="form-control">Categor&iacute;a</label>
           </div>
           <div class="col-lg-10">
-            <select name="" id="" class="form-control">
-              <option value="">Finanzas</option>
-              <option value=""></option>
+            <select name="" id="" class="form-control" v-model="post.category">
+              <option value="Finanzas">Finanzas</option>
+              <option value="Contabilidad">Contabilidad</option>
               <option value=""></option>
               <option value=""></option>
             </select>
           </div>
         </div>
-        <div class="row"></div>
-        <div class="row"></div>
         <div class="row">
           <div class="col-12">
-            <vue-editor v-model="postSelected.content" />
+            <vue-editor v-model="post.content" />
           </div>
         </div>
       </div>
-      <div class="col-lg-6 d-sm-none d-md-block">
-        <div class="row">
+      <div class="col-lg-6 d-sm-none d-md-block app-div-v">
+        <div class="row app-visor-post-editor">
           <div class="col-lg-12">
-            <h3>Vista previa</h3>
-          </div>
-        </div>
-        <div class="row app-visor-post">
-          <div class="col-lg-12">
-            <div class="row"><Post :post="postSelected" /></div>
-            <div class="row"><div v-html="postSelected.content"></div></div>
+            <div class="row"><Post :post="post" /></div>
+            <div class="row"><div v-html="post.content"></div></div>
           </div>
         </div>
       </div>
@@ -57,34 +50,27 @@
   </div>
 </template>
 <script>
+// import { mapGetters } from "vuex";
+import store from "../store";
+import { FETCH_POST } from "../store/actions.type";
 import { VueEditor } from "vue2-editor";
+import Post from '../components/Post';
 
 export default {
-  name: 'Noticias',
-  components: { VueEditor },
-  props: {
-    params: Object
-  },
+  name: 'EditorNoticia',
+  components: { VueEditor,Post },
   data: () => ({
-    content: "<h1>Some initial content</h1>",
-    postSelected: {
-      "id": 1,
-      "photo": "https://cloud/img.png",
-      "content": "Content <h1>Title</h1>",
-      "title": "Noticia  1",
-      "category": "Finanzas",
-      "authorId": 1,
-      "created": "12/12/2020",
-      "updated": "12/12/2020",
-      "likes": 10,
-      "numberOfComments": 34
-    }
+    post: {}
   }),
   methods: {
-    onGridReady(params) {
-      this.gridApi = params.api;
-      this.columnApi = params.columnApi;
+    getPostById: function(id) {
+      store.dispatch(FETCH_POST, id, { "_expand": "author"}).then(response => {
+        this.post = response;
+      })
     }
+  },
+  created() {
+    this.getPostById(this.$route.params.id);
   }
 }
 </script>

@@ -17,6 +17,11 @@
     padding: 10px;
   }
 
+  .app-div-v {
+    border-left: 2px solid $secondary-color;
+  }
+
+  .app-visor-post-editor,
   .app-visor-post {
     width: 98%;
     height: 455px;
@@ -26,13 +31,34 @@
     padding: 10px;
   }
 
+  .app-visor-post-editor {
+    /* border: 1px solid #f00; */
+    height: calc(76vh);
+  }
+
+  .top-header-area {
+    background-color: $app-default;
+    .top-header-content {
+      background-color: $app-default;
+    }
+  }
+
+  .footer-logo b.logo {
+    font-size: 28px;
+    color: #fff;
+  }
+
   #menu-bar {
     .bg-dark {
-      background-color: rgb(28,65,153) !important;
+      background-color: $app-default !important;
     }
   
     .navbar-dark .navbar-nav .nav-link {
       color: rgba(255, 255, 255, 1);
     }
+  }
+
+  label.form-control {
+    border: 0px;
   }
 }

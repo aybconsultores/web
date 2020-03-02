@@ -29,8 +29,8 @@ class AbstractService {
     });
   }
 
-  get(slug = "") {
-    return Vue.axios.get(`${this.resource}/${slug}`).catch(error => {
+  get(slug = "", params) {
+    return Vue.axios.get(`${this.resource}/${slug}`, { params }).catch(error => {
       throw new Error(`AbstractService ${error}`);
     });
   }
