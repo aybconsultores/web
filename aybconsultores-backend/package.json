@@ -1,21 +1,32 @@
 {
-  "name": "transferir-datos",
+  "name": "aybconsultores-backend",
   "version": "1.0.0",
-  "description": "Transferencia de datos",
-  "main": "index.js",
+  "description": "Servicios Backend de Noticias",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "tsc && concurrently \"npm run tsc:w\" \"node dist/main.js\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
   },
-  "author": "",
+  "author": "juanquedena@gmail.com",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "firebase": "^7.8.2",
     "firebase-admin": "^8.9.2",
-    "mongodb": "^3.5.3",
+    "mongoose": "^5.9.3",
+    "mongoose-aggregate-paginate-v2": "^1.0.4",
+    "util": "^0.12.2",
     "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/mongoose": "^5.7.3",
+    "@types/node": "^13.9.0",
+    "concurrently": "^5.1.0",
+    "typescript": "^3.8.3"
   }
 }
