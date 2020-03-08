@@ -1,8 +1,7 @@
-const util  = require('util');
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import util from "util";
+import { Schema, SchemaDefinition, SchemaOptions } from "mongoose";
 
-function AbstractEntitySchema() {
+function AbstractEntitySchema(definition?: SchemaDefinition, options?: SchemaOptions):any {
   Schema.apply(this, arguments);
 
   this.add({
@@ -20,4 +19,4 @@ function AbstractEntitySchema() {
 
 util.inherits(AbstractEntitySchema, Schema);
 
-exports.AbstractEntitySchema = AbstractEntitySchema;
+export default AbstractEntitySchema();

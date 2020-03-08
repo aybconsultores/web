@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const aggregatePaginate  = require('mongoose-aggregate-paginate-v2');
-const AbstractEntitySchema = require('./AbstractEntitySchema');
+import mongoose from "mongoose";
+import aggregatePaginate from "mongoose-aggregate-paginate-v2";
+import AbstractEntitySchema from "./AbstractEntitySchema";
 
 const NewsSchema = new AbstractEntitySchema({
   photo: { type: String, require: [ true, "La dirección de la foto principal es obligatoria" ] },
@@ -16,4 +16,4 @@ const NewsSchema = new AbstractEntitySchema({
 });
 
 NewsSchema.plugin(aggregatePaginate);
-module.exports = mongoose.model('news', NewsSchema);
+export default mongoose.model('news', NewsSchema);
