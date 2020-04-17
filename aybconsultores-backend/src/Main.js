@@ -1,26 +1,25 @@
-import dotenv from "dotenv";
-import express from "express";
-import bodyParser from "body-parser";
-import { verifyToken } from "./middleware/Authentication";
+const dotenv = require("dotenv")
+const express = require("express")
+const bodyParser = require("body-parser")
+const { verifyToken } = require("./middleware/Authentication")
+const app = express();
 
 dotenv.config();
 
-const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(verifyToken);
 
 const server = app.listen(process.env.PORT || 8080, () => {
-  const address:any = server.address();
-  const host = address.address.replace("::", "localhost");
-  const port = address.port;
-  
-  console.log("App listening at http://%s:%s", host, port);
+  const address = server.address()
+  const host = address.address.replace("::", "localhost")
+  const port = address.port
+  console.log("App listening at http://%s:%s", host, port)
 });
 
 app.get("/news", (request, response) => {
-  response.send("news sample 1");
-});
+  response.send("news sample 1")
+})
 
 /*
 const MongoClient = require("mongodb").MongoClient;

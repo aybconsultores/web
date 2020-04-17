@@ -80,11 +80,13 @@ export default {
     onScroll() {
       // Any code to be executed when the window is scrolled
       const e = document.querySelector("#stickyMenu");
-      const y = e.getBoundingClientRect().top;
-      if(y <= 0) {
-        e.classList.add("app-fixed");
-      } else {
+      const y1 = e.getBoundingClientRect().top;
+      const y2 = document.querySelector(".top-header-area").getBoundingClientRect().top;
+
+      if(Math.abs(y2) <= 100) {
         e.classList.remove("app-fixed");
+      } else if(y1 <= 0) {
+        e.classList.add("app-fixed");
       }
     }
   },
